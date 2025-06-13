@@ -9,13 +9,13 @@ const DashboardPage = () => {
         <Layout>
             <Paper sx={{ p: 4 }}>
                 <Typography variant="h4" gutterBottom>
-                    Особистий кабінет
+                    Personal cabinet
                 </Typography>
                 <Box mt={2}>
                     <Typography>Email: {user?.email}</Typography>
-                    <Typography>Роль: {user?.role}</Typography>
+                    <Typography>Role: {user?.role}</Typography>
                     <Typography>
-                        Підписка: {user?.subscription || 'не вибрано'}
+                        Subscription: {user?.subscription || 'Not selected'}
                     </Typography>
                 </Box>
             </Paper>

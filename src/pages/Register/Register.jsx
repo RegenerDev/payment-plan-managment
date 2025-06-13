@@ -52,7 +52,7 @@ const RegisterPage = () => {
     return (
         <Container maxWidth="xs" sx={{ mt: 5 }}>
             <Typography variant="h5" gutterBottom>
-                Реєстрація
+                Registration
             </Typography>
             <form onSubmit={handleSubmit}>
                 <TextField
@@ -65,7 +65,7 @@ const RegisterPage = () => {
                     required
                 />
                 <TextField
-                    label="Пароль"
+                    label="Password"
                     name="password"
                     type="password"
                     value={form.password}
@@ -75,11 +75,11 @@ const RegisterPage = () => {
                     required
                 />
                 <FormControl fullWidth margin="normal">
-                    <InputLabel>Роль</InputLabel>
+                    <InputLabel>Role</InputLabel>
                     <Select
                         name="role"
                         value={form.role}
-                        label="Роль"
+                        label="Role"
                         onChange={handleChange}
                     >
                         <MenuItem value="user">User</MenuItem>
@@ -92,14 +92,14 @@ const RegisterPage = () => {
                     fullWidth
                     sx={{ mt: 2 }}
                 >
-                    Зареєструватися
+                    Registration
                 </Button>
             </form>
             <Box mt={2}>
-                <Link href="/login">Вже маєте акаунт?</Link>
+                <Link href="/login">Already have an account?</Link>
             </Box>
             <br />
-            <Link href="/">На головну</Link>
+            <Link href="/">To the home page</Link>
         </Container>
     )
 }

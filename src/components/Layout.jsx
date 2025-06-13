@@ -47,10 +47,10 @@ const Layout = ({ children }) => {
                                 component={Link}
                                 to="/dashboard"
                             >
-                                Кабінет
+                                Cabinet
                             </Button>
                             <Button color="inherit" onClick={handleLogout}>
-                                Вийти
+                                Log out
                             </Button>
                         </>
                     ) : (
@@ -60,14 +60,14 @@ const Layout = ({ children }) => {
                                 component={Link}
                                 to="/login"
                             >
-                                Увійти
+                                Log In
                             </Button>
                             <Button
                                 color="inherit"
                                 component={Link}
                                 to="/register"
                             >
-                                Реєстрація
+                                Sign Up
                             </Button>
                         </>
                     )}

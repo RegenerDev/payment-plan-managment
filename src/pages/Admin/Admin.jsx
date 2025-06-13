@@ -53,7 +53,7 @@ const AdminPage = () => {
         <Layout>
             <Container sx={{ py: 4 }}>
                 <Typography variant="h4" gutterBottom align="center">
-                    Адмін-панель
+                    Admin panel
                 </Typography>
 
                 <Paper sx={{ mt: 3 }}>
@@ -61,8 +61,8 @@ const AdminPage = () => {
                         <TableHead>
                             <TableRow>
                                 <TableCell>Email</TableCell>
-                                <TableCell>Роль</TableCell>
-                                <TableCell>Підписка</TableCell>
+                                <TableCell>Role</TableCell>
+                                <TableCell>Subscription</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -71,10 +71,10 @@ const AdminPage = () => {
                                     <TableCell>{user.email}</TableCell>
                                     <TableCell>
                                         <FormControl fullWidth>
-                                            <InputLabel>Роль</InputLabel>
+                                            <InputLabel>Role</InputLabel>
                                             <Select
                                                 value={user.role}
-                                                label="Роль"
+                                                label="Role"
                                                 onChange={(e) =>
                                                     handleRoleChange(
                                                         user.email,
@@ -93,10 +93,10 @@ const AdminPage = () => {
                                     </TableCell>
                                     <TableCell>
                                         <FormControl fullWidth>
-                                            <InputLabel>План</InputLabel>
+                                            <InputLabel>Plan</InputLabel>
                                             <Select
                                                 value={user.subscription || ''}
-                                                label="План"
+                                                label="Plan"
                                                 onChange={(e) =>
                                                     handlePlanChange(
                                                         user.email,

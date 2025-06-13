@@ -40,7 +40,7 @@ const LoginPage = () => {
         <Container maxWidth="sm">
             <Paper elevation={3} sx={{ p: 4, mt: 8 }}>
                 <Typography variant="h5" gutterBottom>
-                    Вхід
+                    Log in
                 </Typography>
                 <Box component="form" onSubmit={handleSubmit}>
                     <TextField
@@ -55,7 +55,7 @@ const LoginPage = () => {
                     />
                     <TextField
                         fullWidth
-                        label="Пароль"
+                        label="Password"
                         name="password"
                         type="password"
                         value={form.password}
@@ -69,14 +69,16 @@ const LoginPage = () => {
                         fullWidth
                         sx={{ mt: 2 }}
                     >
-                        Увійти
+                        Log in
                     </Button>
                     <Box mt={2} display="flex" justifyContent="space-between">
-                        <Link href="/reset-password">Забули пароль?</Link>
-                        <Link href="/register">Реєстрація</Link>
+                        <Link href="/reset-password">
+                            Forgot your password?
+                        </Link>
+                        <Link href="/register">Sign Up</Link>
                     </Box>
                     <br />
-                    <Link href="/">На головну</Link>
+                    <Link href="/">To the home page</Link>
                 </Box>
             </Paper>
         </Container>

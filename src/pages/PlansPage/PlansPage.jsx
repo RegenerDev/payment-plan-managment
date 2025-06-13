@@ -20,7 +20,7 @@ const PlansPage = () => {
             navigate(`/register?plan=${planName}`)
         } else {
             updateUser(user.email, { subscription: planName })
-            alert(`Ви підписались на план "${planName}"`)
+            alert(`You have subscribed to the plan "${planName}"`)
             navigate('/dashboard')
         }
     }
@@ -28,7 +28,7 @@ const PlansPage = () => {
     return (
         <Layout>
             <Typography variant="h4" gutterBottom>
-                Оберіть план підписки
+                Choose a subscription plan
             </Typography>
             <Grid container spacing={4}>
                 {plans.map((plan) => (
@@ -62,7 +62,7 @@ const PlansPage = () => {
                                     onClick={() => handleSubscribe(plan.title)}
                                     fullWidth
                                 >
-                                    Підписатись
+                                    Subscribe
                                 </Button>
                             </CardActions>
                         </Card>

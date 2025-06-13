@@ -20,14 +20,14 @@ const ResetPasswordPage = () => {
         const users = getUsers()
         const user = users.find((u) => u.email === email)
         if (!user) {
-            alert('Користувача не знайдено')
+            alert('User not found')
             return
         }
 
-        const newPassword = prompt('Введіть новий пароль:')
+        const newPassword = prompt('Enter a new password:')
         if (newPassword) {
             updateUser(email, { password: newPassword })
-            alert('Пароль оновлено!')
+            alert('Password has been updated!')
             navigate('/')
         }
     }
@@ -36,7 +36,7 @@ const ResetPasswordPage = () => {
         <Container maxWidth="sm">
             <Paper elevation={3} sx={{ p: 4, mt: 8 }}>
                 <Typography variant="h5" gutterBottom>
-                    Скидання пароля
+                    Reset your password
                 </Typography>
                 <Box component="form" onSubmit={handleReset}>
                     <TextField
@@ -54,10 +54,10 @@ const ResetPasswordPage = () => {
                         fullWidth
                         sx={{ mt: 2 }}
                     >
-                        Скинути пароль
+                        Reset your password
                     </Button>
                     <Box mt={2}>
-                        <Link href="/login">Назад до входу</Link>
+                        <Link href="/login">Back to the log in page </Link>
                     </Box>
                 </Box>
             </Paper>
