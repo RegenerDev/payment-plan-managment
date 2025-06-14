@@ -8,6 +8,7 @@ import {
 } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
 import { getCurrentUser, logout } from '../auth/authService'
+import Footer from 'container/Footer/Footer'
 
 const Layout = ({ children }) => {
     const user = getCurrentUser()
@@ -19,14 +20,19 @@ const Layout = ({ children }) => {
     }
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box
+            sx={{
+                minHeight: '100vh',
+                display: 'flex',
+                flexDirection: 'column',
+            }}
+        >
             <AppBar position="fixed" color="primary">
                 <Toolbar>
                     <Typography
                         variant="h6"
-                        sx={{ flexGrow: 1 }}
+                        sx={{ flexGrow: 1, cursor: 'pointer' }}
                         onClick={() => navigate('/')}
-                        style={{ cursor: 'pointer' }}
                     >
                         Subscribes App
                     </Typography>
@@ -73,8 +79,17 @@ const Layout = ({ children }) => {
                     )}
                 </Toolbar>
             </AppBar>
+
+            {/* Spacer */}
             <Toolbar />
-            <Container sx={{ mt: 2 }}>{children}</Container>
+
+            {/* Main content */}
+            <Box sx={{ flex: 1 }}>
+                <Container sx={{ mt: 2 }}>{children}</Container>
+            </Box>
+
+            {/* Full-width footer */}
+            <Footer />
         </Box>
     )
 }
