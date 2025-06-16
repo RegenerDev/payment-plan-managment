@@ -27,9 +27,10 @@ const PlansPage = () => {
 
     return (
         <Layout>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4" gutterBottom textAlign="center">
                 Choose a subscription plan
             </Typography>
+            <br />
             <Grid container spacing={4}>
                 {plans.map((plan) => (
                     <Grid item xs={12} md={4} key={plan.title}>

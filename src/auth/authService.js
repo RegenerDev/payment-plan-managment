@@ -9,7 +9,12 @@ export const saveUsers = (users) => {
 export const login = (email, password) => {
     const users = getUsers()
     const user = users.find((u) => u.email === email && u.password === password)
+
     if (user) {
+        if (user.blocked) {
+            alert('Ваш акаунт заблоковано')
+            return null
+        }
         localStorage.setItem('currentUser', JSON.stringify(user))
         return user
     }
@@ -23,7 +28,7 @@ export function register(email, password, role = 'user') {
         return false
     }
 
-    users.push({ email, password, role, subscription: null })
+    users.push({ email, password, role, subscription: null, blocked: false })
     localStorage.setItem('users', JSON.stringify(users))
     return true
 }
@@ -51,4 +56,6 @@ export function updateUser(email, updatedFields) {
         const updatedUser = { ...currentUser, ...updatedFields }
         localStorage.setItem('currentUser', JSON.stringify(updatedUser))
     }
+
+    return users
 }

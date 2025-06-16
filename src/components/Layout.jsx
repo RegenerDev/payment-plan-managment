@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import {
     AppBar,
     Toolbar,
@@ -13,11 +14,31 @@ import Footer from 'container/Footer/Footer'
 const Layout = ({ children }) => {
     const user = getCurrentUser()
     const navigate = useNavigate()
+    const [showFooter, setShowFooter] = useState(false)
+    const [lastScrollTop, setLastScrollTop] = useState(0)
 
     const handleLogout = () => {
         logout()
         navigate('/')
+        window.location.reload()
     }
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScroll = window.scrollY
+
+            if (currentScroll > lastScrollTop && currentScroll > 100) {
+                setShowFooter(true)
+            } else {
+                setShowFooter(false)
+            }
+
+            setLastScrollTop(currentScroll)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [lastScrollTop])
 
     return (
         <Box
@@ -53,7 +74,7 @@ const Layout = ({ children }) => {
                                 component={Link}
                                 to="/dashboard"
                             >
-                                Cabinet
+                                Dashboard
                             </Button>
                             <Button color="inherit" onClick={handleLogout}>
                                 Log out
@@ -68,28 +89,15 @@ const Layout = ({ children }) => {
                             >
                                 Log In
                             </Button>
-                            <Button
-                                color="inherit"
-                                component={Link}
-                                to="/register"
-                            >
-                                Sign Up
-                            </Button>
                         </>
                     )}
                 </Toolbar>
             </AppBar>
-
-            {/* Spacer */}
             <Toolbar />
 
-            {/* Main content */}
-            <Box sx={{ flex: 1 }}>
-                <Container sx={{ mt: 2 }}>{children}</Container>
-            </Box>
+            <Container sx={{ mb: 6, flexGrow: 1 }}>{children}</Container>
 
-            {/* Full-width footer */}
-            <Footer />
+            <Footer visible={showFooter} />
         </Box>
     )
 }

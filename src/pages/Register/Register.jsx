@@ -58,6 +58,7 @@ const RegisterPage = () => {
                 <TextField
                     label="Email"
                     name="email"
+                    type="email"
                     value={form.email}
                     onChange={handleChange}
                     fullWidth
